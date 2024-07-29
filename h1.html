@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ULM Parking Management Portal</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5deb3; /* Wheat background */
+  }
+
+  header {
+    background-color: #800000; /* Maroon header background */
+    color: #f5deb3; /* Wheat text color */
+    padding: 20px 20px; /* Reduce padding */
+    text-align: left; /* Align title to the left */
+  }
+
+  h1 {
+    margin: 0; /* Remove default margin */
+    font-size: 20px; /* Decrease font size */
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 20px auto; /* Reduce margin */
+    padding: 20px;
+    background-color: #f5deb3; /* Wheat body background */
+    border: 2px solid #800000; /* Maroon border */
+    border-radius: 10px;
+  }
+
+  h2 {
+    color: #800000; /* Maroon text color */
+    margin-bottom: 20px; /* Add margin bottom for spacing */
+  }
+
+  .parking-info {
+    display: flex;
+    align-items: center; /* Align items vertically */
+  }
+
+  .parking-spot {
+    color: #800000; /* Maroon text color */
+    font-size: 20px; /* Decrease font size */
+    margin-right: 20px; /* Add margin to the right for spacing */
+  }
+
+  .parking-button {
+    background-color: #800000;
+    color: #f5deb3;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .time-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Add margin bottom for spacing */
+  }
+
+  label {
+    color: #800000; /* Maroon text color */
+    margin-right: 10px; /* Add margin to the right for spacing */
+    width: 50px; /* Set width for consistency */
+    text-align: right; /* Align labels to the right */
+  }
+
+  select {
+    width: calc(50% - 200px); /* Make dropdowns wider */
+    padding: 5px;
+    margin-top: 10px;
+    border: 1px solid #800000; /* Maroon border */
+    border-radius: 5px;
+    background-color: #f5deb3; /* Wheat background */
+    color: #800000; /* Maroon text color */
+  }
+
+  select:first-child {
+    margin-right: 10px; /* Add margin to the right for spacing */
+  }
+
+  #helpButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    background-color: #ccc;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  #helpButton:hover {
+    background-color: grey;
+  }
+
+  .print-button {
+    display: inline;
+    margin-top: 20px;
+    margin-left: 45%;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+  <button id="helpButton" onclick="redirectToCreatePage()">Help</button>
+
+  <header>
+    <h1>ULM Parking Management Portal</h1>
+  </header>
+
+  <div class="container">
+    <h2>Parking Spot: <span id = "buttonText" class="parking-button">R1</span></h2>
+    <div class="time-wrapper">
+      <label for="from_time">From:</label>
+      <select id="from_time">
+        <option value="1">1:00</option>
+        <option value="2">2:00</option>
+        <option value="3">3:00</option>
+        <option value="4">4:00</option>
+        <option value="5">5:00</option>
+        <option value="6">6:00</option>
+        <option value="7">7:00</option>
+        <option value="8">8:00</option>
+        <option value="9">9:00</option>
+        <option value="10">10:00</option>
+        <option value="11">11:00</option>
+        <option value="12">12:00</option>
+      </select>
+      <select id="from_ampm">
+        <option value="AM">AM</option>
+        <option value="PM">PM</option>
+      </select>
+    </div>
+    <div class="time-wrapper">
+      <label for="to_time">To:</label>
+      <select id="to_time">
+        <option value="1">1:00</option>
+        <option value="2">2:00</option>
+        <option value="3">3:00</option>
+        <option value="4">4:00</option>
+        <option value="5">5:00</option>
+        <option value="6">6:00</option>
+        <option value="7">7:00</option>
+        <option value="8">8:00</option>
+        <option value="9">9:00</option>
+        <option value="10">10:00</option>
+        <option value="11">11:00</option>
+        <option value="12">12:00</option>
+      </select>
+      <select id="to_ampm">
+        <option value="AM">AM</option>
+        <option value="PM">PM</option>
+      </select>
+    </div>
+    <p><strong>License Plate Number:</strong><span id="input1Value"></span></p>
+    <p><strong>Car Model:</strong><span id="input2Value"></span></p>
+    <p><strong>Name:</strong> <span id="input3Value"></span></p>
+    <p><strong>Email:</strong> <span id="input4Value"></span></p>
+    <p><strong>Phone:</strong> <span id="input5Value"></span></p>
+    <p><strong>Confirmation Code: </strong><span id="confirmation-number">
+
+
+    <div id="verify">
+      <label for="ParkingPass">Parking Pass Number: </label>
+      <input type="name" id="Pass" name="Pass" required>
+      <button type="submit" onclick="submitForm(event)">Verify</button>
+    </div>
+    
+
+    <div id="responseMessage" style="display: none; margin-top: 20px; font-weight: bold; color: green;">
+      Pass Verfied.
+    </div>
+  </div>
+
+  <a href="javascript:void(0);" class="print-button" onclick="window.print()">Print This Page</a>
+
+</body>
+
+<script>
+  const buttonText = localStorage.getItem('buttonText');
+  document.getElementById('buttonText').innerText = buttonText;
+
+  document.getElementById('input1Value').innerText = localStorage.getItem('input1Value') || 'N/A';
+  document.getElementById('input2Value').innerText = localStorage.getItem('input2Value') || 'N/A';
+  document.getElementById('input3Value').innerText = localStorage.getItem('input3Value') || 'N/A';
+  document.getElementById('input4Value').innerText = localStorage.getItem('input4Value') || 'N/A';
+  document.getElementById('input5Value').innerText = localStorage.getItem('input5Value') || 'N/A';
+
+  function submitForm(event) {
+    event.preventDefault();
+
+    // Perform form submission here (e.g., send data to server, etc.)
+
+    // Display the message by expanding the container
+    document.getElementById('message').style.display = 'block';
+    document.getElementById('verify').style.height = 'auto'
+  }
+
+  /* Style for the help button */
+  // Function to redirect to the create.html page when the help button is clicked
+  function redirectToCreatePage() {
+    window.location.href = "help.html";
+  }
+
+  function submitForm(event) {
+    event.preventDefault();
+
+    // Perform form submission here (e.g., send data to server, etc.)
+
+    // Display "Pass Verified" message
+    document.getElementById('responseMessage').innerText = 'Pass Verified.';
+    document.getElementById('responseMessage').style.display = 'block';
+
+    // Hide the "Pass Verified" message after 2 seconds
+    setTimeout(function() {
+      document.getElementById('responseMessage').style.display = 'none';
+    }, 2000);
+
+    // Display the confirmation message after 2 seconds
+    setTimeout(function() {
+      document.getElementById('responseMessage').innerText = 'Your Spot has been booked. \n Thank you.';
+      document.getElementById('responseMessage').style.display = 'block';
+    }, 2000);
+  }
+
+  function generateConfirmationNumber(length) {
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var confirmationNumber = '';
+    for (var i = 0; i < length; i++) {
+        confirmationNumber += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return confirmationNumber;
+}
+
+var confirmationNumber = generateConfirmationNumber(10); // Change 10 to desired length
+document.getElementById('confirmation-number').textContent = confirmationNumber;
+
+function submitForm(event) {
+    event.preventDefault();
+
+    // Get the input value
+    var passValue = document.getElementById('Pass').value;
+
+    // Check if the input is not empty
+    if (passValue.trim() === '') {
+        alert('Please enter a Parking Pass Number.');
+        return;
+    }
+
+    // Perform form submission here (e.g., send data to server, etc.)
+
+    // Display "Pass Verified" message
+    document.getElementById('responseMessage').innerText = 'Pass Verified.';
+    document.getElementById('responseMessage').style.display = 'block';
+
+    // Hide the "Pass Verified" message after 2 seconds
+    setTimeout(function() {
+        document.getElementById('responseMessage').style.display = 'none';
+    }, 2000);
+
+    // Display the confirmation message after 2 seconds
+    setTimeout(function() {
+        document.getElementById('responseMessage').innerText = 'Your Spot has been booked. \n Thank you.';
+        document.getElementById('responseMessage').style.display = 'block';
+    }, 2000);
+}
+
+</script>
+
+
+</html>

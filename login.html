@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        /* Style for the container */
+        .login-container {
+            width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: wheat;
+        }
+        /* Style for the form */
+        form {
+            margin-top: 20px;
+        }
+        /* Background image */
+        body {
+            background-image: url('BG.jpg');
+            background-size: cover; /* Cover the entire background */
+            height: 100vh; /* Set the height of the body to full viewport height */
+            margin: 0; /* Remove default margin */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h1 style="margin-left:40%; color: maroon;"><u>Login</u></h1>
+    <form action="home.html">
+        <label for="username" style="font-size: 25px;">Username: </label>
+        <input type="text" id="username" name="username" required style="width: 150px; height:20px;"><br><br>
+
+        <label for="password" style="font-size: 25px;">Password:  </label>
+        <input type="password" id="password" name="password" required style="width: 150px; height:20px; margin-left: 5px;"><br><br>
+
+        <input type="submit" value="Login" style="width: 60px; height:25px"><br><br>
+        <p>Don't have an account?  <a href="Create.html">Sign up!</a></p>
+    </form>
+</div>
+
+</body>
+</html>

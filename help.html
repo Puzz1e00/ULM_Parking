@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Car Parking Incident Report</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f5deb3; margin: 0; padding: 0;">
+
+<header style="background-color: #800000; color: #f5deb3; padding: 20px 20px; text-align: left; font-size: 24px; display: flex; justify-content: space-between; align-items: center; margin-top: 0;">
+  <a href="home.html" ><h1 style="font-size: 20px; color: wheat; text-decoration: none;">ULM Parking Management Portal</h1></a>
+  <div></div> <!-- This empty div ensures the title stays on the left -->
+</header>
+
+<div style="width: 600px; margin: 0 auto; margin-top: 50px; padding: 20px; border: 2px solid #800000; border-radius: 5px; background-color: wheat;">
+<h1 style="color: m
+aroon;">Parking Incident Report</h1>
+    
+    <p>Please select the situation:</p><br>
+    
+    <form id="incidentForm">
+        <input type="radio" id="carInSpot" name="situation" value="car_in_spot">
+        <label for="carInSpot">Another Car is in my spot</label><br>
+        <input type="radio" id="carBlockingSpot" name="situation" value="car_blocking_spot">
+        <label for="carBlockingSpot">Car parked next to my spot blocks my spot</label><br><br>
+        
+        <div id="uploadSection" style="display: none;">
+            <p>Please provide details:</p>
+            <label for="licensePlate">1. Your Confirmation Code:</label>
+            <input type="text" id="licensePlate" name="licensePlate">
+            <br><br>
+            <p>2. Submit a photo capturing the problem.</p>
+            <input type="file" id="fileUpload" accept="image/*" style="margin-top: 10px;">
+            <br><br>
+            <label for="licensePlate">3. License Plate Number:</label>
+            <input type="text" id="licensePlate" name="licensePlate">
+            <br><br>
+            <label for="additionalInfo">Additional Information:</label><br>
+            <textarea id="additionalInfo" name="additionalInfo" rows="4" cols="50"></textarea>
+        </div>
+        
+        <input type="submit" value="Submit">
+    </form>
+    
+    <div id="responseMessage" style="display: none; margin-top: 20px; font-weight: bold; color: green;">
+        Submission successful!
+    </div>
+</div>
+
+<script>
+    document.getElementById('incidentForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var responseMessage = document.getElementById('responseMessage');
+        responseMessage.style.display = 'block';
+      
+        setTimeout(function() {
+            responseMessage.textContent = 'Thank you for providing the information. UPD assistance is on the way.';
+        }, 2000);
+    });
+    
+    document.querySelectorAll('input[type="radio"]').forEach(function(radio) {
+        radio.addEventListener('change', function() {
+            var uploadSection = document.getElementById('uploadSection');
+            if (this.value === 'car_in_spot' || this.value === 'car_blocking_spot') {
+                uploadSection.style.display = 'block';
+            } else {
+                uploadSection.style.display = 'none';
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

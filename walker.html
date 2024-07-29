@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Booking system</title>
+<style>
+
+    /* FOR BOOKING PAGE*/
+    /* Reset default margin and padding */
+    body {
+        margin: 0;
+        padding: 0;
+        background-color:wheat; /* Light grey background color */
+    }
+    header {
+            background-color: #800000; /* Maroon header background */
+            font-size: 30px;
+            width: 100%;
+            position: fixed;
+            color: #f5deb3; /* Wheat text color */
+            padding: 20px 20px; /* Reduce padding */
+            text-align: left; /* Align title to the left */
+        }
+
+   h1 {
+    margin: 0; /* Remove default margin */
+    font-size: 20px; /* Decrease font size */
+   }
+
+    /* Center content vertically and horizontally */
+    body {
+        font-family: Arial, sans-serif;
+        display: inline;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+    }
+
+    /* Style the image */
+    img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px; /* Add space below the image */
+    }
+
+    /* Style the button container */
+    .button-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 450px; /* Add space below the button container */
+    }
+
+    /* Style the buttons */
+    .color-toggle {
+        padding: 10px 10px;
+        font-size: 15px;
+        cursor: pointer;
+        background-color: grey;
+        color: white;
+        margin: 3px;
+        border: none;
+        border-radius: 3px;
+        transition: background-color 0.3s ease;
+    }
+
+    /* Style the green button */
+    .color-toggle.green {
+        background-color: green;
+    }
+
+    /* Style the link */
+    a {
+        display: inline-block;
+        text-decoration: none;
+        color: white;
+        background-color: blue;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        margin: 400px;
+    }
+
+    /* Hover effect for buttons and link */
+    .color-toggle:hover,
+    a:hover {
+        background-color: black;
+    }
+
+
+    /*FOR SHOWING WHAT COLOR DENOTES*/
+    .color-block-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .color-block {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+    
+        .color {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            border-radius: 5px;
+        }
+
+        /* FOR IMAGE */
+        .center-image {
+            display: flex;
+            align-items: center;
+            height: 700px;
+            width: 900px;
+            margin-left: 15%;
+       
+        }
+
+        .center-image img {
+            margin-right: 10px; /* Adjust as needed */
+        }
+
+
+</style>
+</head>
+<body>
+
+  <header>
+    <h1>ULM Parking Management Portal</h1>
+    </header>
+
+    <br>
+    <br><br><br>
+    <p  style="margin-left: 30%; font-size: 50px;"><u>Parking Map of Walker Hall</u></p>
+
+
+    
+    <div class="center-image">
+        <img src="Walker map.jpg" alt="Walker map image" style="width:120% ; height: 580px;">
+        
+    </div>
+
+    <div class = "color-block">
+        <div class="color" style="background-color: red;"></div>
+        <div style="color: black; font-size: 16px; margin-right: 16px ;">BOOKED</div>
+ 
+        <div class="color" style="background-color: gray;"></div>
+        <div style="color: black; font-size: 16px; margin-right: 16px ;">AVAILABLE</div>
+
+        <div class="color" style="background-color: blue;"></div>
+        <div style="color: black; font-size: 16px; margin-right: 16px ;">RESERVED FOR FACULTY</div>
+      
+    </div>
+    
+    <!--BOOKING SELECTION -->
+
+    <div style="margin-top: 30px;">
+        <button class="color-toggle">A1</button>
+        <button class="color-toggle" style="background-color: red;">A2</button>
+        <button class="color-toggle"  style="background-color: red;">A3</button>
+        <button class="color-toggle" style="background-color: red;">A4</button>
+        <button class="color-toggle">A5</button>
+        <button class="color-toggle">A6</button>
+        <button class="color-toggle"  style="background-color: red;">A7</button>
+        <button class="color-toggle">A8</button>
+        <button class="color-toggle"  style="background-color: red;">A9</button>
+        <button class="color-toggle" style="background-color: red;">A10</button>
+        <button class="color-toggle">A11</button>
+        <button class="color-toggle">A12</button>
+        <button class="color-toggle"  style="background-color: red;">A13</button>
+        <button class="color-toggle"  style="background-color: red;">A14</button>
+        <button class="color-toggle" style="background-color: red;">A15</button>
+        <button class="color-toggle">A16</button>
+        <button class="color-toggle">A17</button>
+        <button class="color-toggle"  style="background-color: red;">A18</button>
+        <button class="color-toggle">A19</button>
+        <button class="color-toggle"  style="background-color: red;">A20</button>
+        <button class="color-toggle" style="background-color: red;">A21</button>
+
+
+
+        
+    </div>
+    <div style="margin-top: 50px;">
+        <button class="color-toggle"  style="background-color: red;">B1</button>
+        <button class="color-toggle">B2</button>
+        <button class="color-toggle"  style="background-color: red;">B3</button>
+        <button class="color-toggle" style="background-color: red;">B4</button>
+        <button class="color-toggle">B5</button>
+        <button class="color-toggle"  style="background-color: red;">B6</button>
+        <button class="color-toggle">B7</button>
+        <button class="color-toggle"  style="background-color: red;">B8</button>
+        <button class="color-toggle">B9</button>
+        <button class="color-toggle" style="background-color: red;">B10</button>
+        <button class="color-toggle"  style="background-color: red;">B11</button>
+        <button class="color-toggle">B12</button>
+        <button class="color-toggle"  style="background-color: red;">B13</button>
+        <button class="color-toggle">B14</button>
+        <button class="color-toggle"  style="background-color: red;">B15</button>
+        <button class="color-toggle">B16</button>
+        <button class="color-toggle" style="background-color: red;">B17</button>
+        <button class="color-toggle"  style="background-color: red;">B18</button>
+        <button class="color-toggle" style="margin-left: 260px; background-color: blue;">F1</button>
+
+    </div>
+
+    <div class="button-container">
+        <button class="color-toggle" style="margin-top: 10px; margin-left: 280px; background-color: blue;">C1</button>
+        <button class="color-toggle" style="margin-top: 10px; margin-left: 220px;">F2</button>
+    </div>
+
+    <div class="button-container">
+        <button class="color-toggle" style="margin-top: 10px; margin-left: 280px; background-color: blue;">C2</button>
+        <button class="color-toggle" style="margin-top: 10px; margin-left: 220px; background-color: blue;">F3</button>
+    </div>
+    <div class="button-container">
+        <button class="color-toggle" style="margin-top: 10px; margin-left: 280px;">C3</button>
+        <button class="color-toggle" style="margin-top: 10px; margin-left: 220px ; background-color: blue;">F4</button>
+    </div>
+    <div class="button-container">
+        <button class="color-toggle" style="margin-top: 10px; margin-left: 280px; ">C4</button>
+        <button class="color-toggle" style="margin-top: 10px; margin-left: 220px; background-color: blue;" >F5</button>
+    </div>
+    <div class="button-container">
+        <button class="color-toggle" style="margin-top: 10px; margin-left: 280px; background-color: blue;">C5</button>
+        <button class="color-toggle" style="margin-top: 10px; margin-left: 220px;">F6</button>
+    </div>
+
+    <div class="button-container">
+        <button class="color-toggle" style="margin-top: 10px; margin-left: 280px; background-color: blue;">C6</button>
+        <button class="color-toggle" style="margin-top: 10px; margin-left: 220px; background-color: blue;">F7</button>
+    </div>
+    <div class="button-container">
+        <button class="color-toggle" style="margin-top: 10px; margin-left: 280px;">C7</button>
+        <button class="color-toggle" style="margin-top: 10px; margin-left: 220px ; background-color: blue;">F8</button>
+    </div>
+    <div class="button-container">
+        <button class="color-toggle" style="margin-top: 10px; margin-left: 280px; ">C8</button>
+        <button class="color-toggle" style="margin-top: 10px; margin-left: 220px; background-color: blue;" >F9</button>
+    </div>
+    <div class="button-container">
+        <button class="color-toggle" style="margin-top: 10px; margin-left: 280px; ">C9</button>
+        <button class="color-toggle" style="margin-top: 10px; margin-left: 220px;">F10</button>
+    </div>
+
+    <div class="button-container">
+        <button class="color-toggle" style="margin-top: 10px; margin-left: 540px; background-color: blue;">F11</button>
+    </div>
+    <div class="button-container">
+
+    </div>
+
+
+
+
+    <div style="margin-top: 10px;">
+        <button class="color-toggle"  style="background-color: red;">D1</button>
+        <button class="color-toggle">D2</button>
+        <button class="color-toggle">D3</button>
+        <button class="color-toggle" style="background-color: red;">D4</button>
+        <button class="color-toggle"  style="background-color: red;">D5</button>
+        <button class="color-toggle"  style="background-color: red;">D6</button>
+        <button class="color-toggle">D7</button>
+        <button class="color-toggle"  style="background-color: red;">D8</button>
+        <button class="color-toggle"  style="background-color: red;">D9</button>
+        <button class="color-toggle" style="background-color: red;">D10</button>
+        <button class="color-toggle" >D11</button>
+        <button class="color-toggle"  style="background-color: red;">D12</button>
+        <button class="color-toggle">D13</button>
+        <button class="color-toggle">D14</button>
+        <button class="color-toggle" style="background-color: red;">D15</button>
+        <button class="color-toggle"  style="background-color: red;">D16</button>
+        <button class="color-toggle"  style="background-color: red;">D17</button>
+        <button class="color-toggle">D18</button>    
+        <button class="color-toggle" style="margin-top: 10px; margin-left: 240px ; background-color: blue;">F12</button>    
+
+    </div>
+    <div style="margin-top: 50px;">
+        <button class="color-toggle">E1</button>
+        <button class="color-toggle">E2</button>
+        <button class="color-toggle"  style="background-color: red;">E3</button>
+        <button class="color-toggle" style="background-color: red;">E4</button>
+        <button class="color-toggle">E5</button>
+        <button class="color-toggle">E6</button>
+        <button class="color-toggle"  style="background-color: red;">E7</button>
+        <button class="color-toggle">E8</button>
+        <button class="color-toggle">E9</button>
+        <button class="color-toggle" style="background-color: red;">E10</button>
+        <button class="color-toggle"  style="background-color: red;">E11</button>
+        <button class="color-toggle">E12</button>
+        <button class="color-toggle"  style="background-color: red;">E13</button>
+        <button class="color-toggle">E14</button>
+        <button class="color-toggle">E15</button>
+        <button class="color-toggle"  style="background-color: red;">E16</button>
+        <button class="color-toggle" style="background-color: red;">E17</button>
+        <button class="color-toggle">E18</button>
+        <button class="color-toggle">E19</button>
+        <button class="color-toggle"  style="background-color: red;">E20</button>
+        <button class="color-toggle">E21</button>
+
+
+    </div>
+
+    <!--NEXT PAGE BUTTON-->
+    <div>
+    <a href="Confirmation.html" style="margin-top: 20px"> Proceed </a>
+    </div>
+
+
+
+    <script>
+
+        /*
+        const button = document.querySelectorAll('.color-toggle');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', function() {
+                button.classList.toggle('green');
+            });
+        });
+        */
+
+const buttons = document.querySelectorAll('.color-toggle');
+
+buttons.forEach(button => {
+    button.addEventListener('click', function() {
+        // Toggle the 'green' class for styling
+        button.classList.toggle('green');
+
+        // Store the name of the clicked button
+        localStorage.setItem('buttonText', button.innerText);
+
+        // Redirect after setting the item
+        //window.location.href = 'Confirmation.html';
+    });
+});
+
+</script>
+
+    </script>
+</body>
+</html>
